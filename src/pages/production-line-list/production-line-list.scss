@@ -1,0 +1,63 @@
+page-production-line-list {
+
+    .search-container {
+        padding: 15px;
+
+        .search{
+            box-shadow: 0px 1px 4px rgba(0,0,0,0.35);
+            border-radius: 6px;
+            overflow: hidden;
+            height: 45px;
+            position: relative;
+
+            * {
+                height: inherit;
+            }
+
+            ion-input {
+                background-color: none;
+                width: 100%;
+                z-index: 2;
+
+                input {
+                    transition: background-color 0.35s, color 0.35s;
+                    padding: 0 10px;
+                    margin: initial;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 3;
+                    color: #00889D;
+                    background-color: transparent;
+                }
+
+                input:focus {
+                    color: white;
+                    background-color: #00889D;
+                }
+                input:focus::placeholder {
+                    color: #00889D;
+                }
+            }
+
+            ion-icon {
+                z-index: 1;
+                padding: 0 10px;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            ion-icon {
+                color: gray;
+            }
+        }
+    }
+
+    .list-of-lines {
+        ion-icon {
+            float: left;
+            margin-right: 15px;
+        }
+    }
+
+}

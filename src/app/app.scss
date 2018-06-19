@@ -1,0 +1,215 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+ion-header {
+    background-image: linear-gradient(to bottom,#008B95, #00889D);
+}
+
+ion-header, ion-header * {
+    color: white !important;
+}
+
+.text-green, .text-green * {
+    color: #00889D;
+}
+
+ion-menu ion-header .user-letter {
+    background-color: rgba(255,255,255,0.35);
+    float: left;
+    vertical-align: middle;
+    padding: 1.25rem 1.65rem;
+    border-radius: 3rem;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+ion-menu ion-header .toolbar-title-md {
+    margin-bottom: -42.5px;
+}
+
+ion-menu ion-content ion-icon {
+    vertical-align: middle;
+    font-size: 2.35rem;
+    margin-right: 10px;
+}
+
+.bk-gradient-gb {
+    background-image: linear-gradient(to bottom, #00976D, #006CF2);
+}
+
+
+.bk-gradient-r-gb {
+    background-image: linear-gradient(145deg, #00976D, #006CF2);
+}
+
+.toolbar-background, .toolbar-background-ios {
+    background: none;
+}
+
+.app-menu .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+    border-bottom: none;
+}
+
+.logo-container {
+
+    width: 100%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 10px;
+
+    img {
+        max-height: 40px;
+        width: auto;
+        margin-left: -45px;
+    }
+}
+
+/* Global class for the application */
+.flex-h-centered,
+.flex-h-spaced,
+.flex-v-centered,
+.flex-v-spaced {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.flex-h-centered,
+.flex-h-spaced {
+    flex-flow: row;
+}
+
+.flex-v-centered,
+.flex-v-spaced {
+    flex-flow: column;
+}
+
+.flex-h-centered,
+.flex-v-centered {
+    justify-content: center;
+}
+
+.flex-h-spaced,
+.flex-v-spaced {
+    justify-content: space-around;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.ct-bt {
+    transition: box-shadow 0.35s, opacity 0.35s;
+    padding: 0 1.25 rem;
+    font-size: 1 rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 35px;
+    box-shadow: 0px 2px 1px rgba(0,0,0,0.35);
+    opacity: 1;
+}
+
+.ct-bt:active {
+    box-shadow: 0px 6px 4px rgba(0,0,0,0.175);
+    opacity: 0.75;
+}
+
+.clearfix {
+    clear: both;
+    display: block;
+    width: 100%;
+    height: 0px;
+}
+
+.page-title {
+    font-size: 22px;
+    color: #00889D;
+    font-weight: 700;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid silver;
+}
+
+// Padding top set at 25px;
+.p-top-25px {
+    padding-top: 25px !important;
+}
+
+// Margin top and bottom values set at 25px
+.mg-tb-25px {
+    margin: 25px 0px;
+}
+
+.ct-table {
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden !important;
+    margin: 20px 0px;
+    padding: 0 1.5px;
+}
+
+.ct-table, .ct-table table {
+    width: 100%;
+}
+
+.ct-table, .ct-table table, .ct-table table * {
+    box-sizing: border-box !important;
+}
+
+.ct-table table tr td {
+    border: 1px solid gray;
+    color: #00889D;
+    padding: 5px 0;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.ct-table table tr th {
+    background-color: #00889D;
+    border-color: #00889D;
+    color: white;
+    position: sticky;
+    top: 0px;
+}
+
+.ct-table table tr:nth-child(odd) {
+    background-color: rgba(0,150,214,0.125);
+    color: gray;
+}
+
+.ct-table table tr td {
+    text-align: center;
+}
+
+.ct-separator {
+    width: 100%;
+    position: relative;
+    height: 1px;
+    padding: 0 15px;
+    margin: 15px 0;
+}
+
+.ct-separator::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: inherit;
+    background-color: silver;
+}

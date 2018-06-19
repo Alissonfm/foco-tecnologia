@@ -1,0 +1,55 @@
+<!--
+  Generated template for the ProductionLinePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+    
+
+    <ion-title> {{ prodline.name }} </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <div class="ct-table">
+        <table>
+          <tr>
+            <td>data</td> <td>value</td>
+          </tr>
+          <tr>
+            <td>data</td> <td>value</td>
+          </tr>
+          <tr>
+            <td>data</td> <td>value</td> 
+          </tr>
+          <tr>
+            <td>data</td> <td>value</td>
+          </tr>
+          <tr>
+            <td>data</td> <td>value</td>
+          </tr>
+          <tr>
+            <td>data</td> <td>value</td>
+          </tr>
+        </table>
+      </div>
+
+
+
+  <graph-widget *ngFor="let item of prodline?.equipments" [equipmentData]="item" [timeData]="requestInfo"></graph-widget>
+  
+
+</ion-content>

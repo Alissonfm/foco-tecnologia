@@ -1,0 +1,36 @@
+page-informacao {
+    .page-content {
+
+        width: 100%;
+        height: 100%;
+        
+        img {
+            max-height: 75px;
+            width: auto;
+        }
+
+        p{
+            width: 100%;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 400;
+        }
+
+        span {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        p, span {
+            width: 100%;
+            color: #00889D;
+            text-align: center;
+        }
+
+        span, img {
+            display: block;
+            margin: 25% auto 35px auto;
+        }
+
+    }
+}

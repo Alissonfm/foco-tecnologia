@@ -1,0 +1,46 @@
+<!--
+  Generated template for the ProductionLineListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+
+      <ion-title>ProductionLineList</ion-title>
+  
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <div class="search-container">
+    <div class="flex-h-centered search">
+      
+      <ion-input placeholder="Pesquisar..." (keyup)="getItems($event)" ></ion-input>
+      <ion-icon class="flex-v-centered" name="search"></ion-icon>
+
+    </div>
+  </div>
+
+  <ion-list class="list-of-lines">
+
+      <ion-item (click)="openPage(item)" *ngFor="let item of items">
+
+      <!-- <ion-item> -->
+  
+        <ion-icon name="ios-cube-outline"></ion-icon>
+
+        {{ item.name }}
+
+      </ion-item>
+  
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,9 @@
+popover-widget {
+    ion-list, .list-ios, .list-md {
+        margin-bottom: 0;
+    }
+
+    .list-ios > :last-child.item-block, .list-ios > :last-child.item-wrapper .item-block {
+        border: none;
+    }
+}

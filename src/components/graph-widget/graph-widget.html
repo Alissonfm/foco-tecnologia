@@ -1,0 +1,62 @@
+<!-- Generated template for the GraphWidgetComponent component -->
+
+<div class="ct-separator"></div>
+
+<div *ngIf="equipmentData?.name" class="equipment-name">
+  {{equipmentData.name}}
+</div>
+
+<div *ngIf="equipmentData?.description" class="equipment-description">
+  {{equipmentData.description}}
+</div>
+
+<button class="bt-load-reports" [hidden]="fullData" ion-button (click)="loadReports()">
+  Carregar relatórios
+</button>
+
+<div [hidden]="!fullData" class="content-div">
+
+  <div class="exibition-switchers">
+      <ion-icon class="btGraph" float-left name="md-analytics" [ngClass]="{'active': !visibility}" (click)="switchVisibility(false)"></ion-icon>
+      <ion-icon class="btTable" float-right name="md-list-box" [ngClass]="{'active': visibility}" (click)="switchVisibility(true)"></ion-icon>
+      <div class="clearfix"></div>
+  </div>
+
+  <div [hidden]="visibility" class="graph-vision">
+    <div class="grafico">
+        <canvas [attr.id]="idChart" ></canvas>
+    </div>
+  </div>
+
+  <div [hidden]="!visibility" class="table-vision ct-table mg-tb-25px" *ngIf="fullData">
+
+    <table class="table table-bordered" *ngIf="fullData.sensor">
+
+      <tr *ngIf="fullData.sensor[0]?.register?.length > 0">
+
+        <th>Data</th>
+
+        <th *ngFor="let sensor of fullData.sensor">
+          {{ sensor.name }}
+        </th>
+
+      </tr>
+
+      <tr *ngIf="fullData.sensor[0]?.register?.length <= 0" >
+        <td colspan="6"> Sem registros </td>
+      </tr>
+
+      <tr *ngFor="let register of fullData.sensor[0].register, let index = index">
+
+        <td>{{ register.created_at | date:"dd/MM/yy HH:mm:ss" }}</td>
+        <td>{{ fullData?.sensor[0]?.register[index]?.quantity }}</td>
+        <td>{{ fullData?.sensor[1]?.register[index]?.quantity }}</td>
+        <td>{{ fullData?.sensor[2]?.register[index]?.quantity }}</td>
+        <td>{{ fullData?.sensor[3]?.register[index]?.quantity }}</td>
+        <td>{{ fullData?.sensor[4]?.register[index]?.quantity }}</td>
+      </tr>
+    </table>
+
+  </div>
+
+</div>

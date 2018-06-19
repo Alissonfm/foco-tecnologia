@@ -1,0 +1,31 @@
+<!-- Generated template for the ProductionLineWidgetComponent component -->
+<div *ngIf="lineData?.name" (click)="openPage()">
+  {{text}}
+
+  <div class="prod-line-title" float-left> {{ lineData.name }} </div>
+  <div class="prod-line-status" float-right></div>
+
+  <div class="clearfix"></div>
+
+  <div class="prod-line-resume">
+    <label>Total</label>
+    <span>1125</span>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="prod-line-wrapper" float-left>
+    <div class="prod-line-esq">
+      <label>Total perdas</label>
+      <span>120</span>
+    </div>
+  </div>
+
+  <div class="prod-line-wrapper" float-right>
+    <div class="prod-line-dir">
+      <label>Total perdas</label>
+      <span>105</span>
+    </div>
+  </div>
+
+</div>
