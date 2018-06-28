@@ -1,0 +1,104 @@
+real-time-data {
+
+    .equipment-name, .equipment-description {
+        color: #00889D;
+    }
+
+    .exibition-switchers ion-icon {
+        color: #00889D;
+    }
+
+    .exibition-switchers ion-icon {
+        text-align: center;
+    }
+
+    .equipment-name {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .equipment-description {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .exibition-switchers {
+        display: block;
+        width: 100%;
+    }
+
+    .graph-vision, .graph-vision .grafico {
+        position: relative;
+    }
+    
+    .graph-vision {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .graph-vision .grafico {        
+        height: 275px;
+    }
+
+    .graph-vision canvas {
+        // position: relative;
+        // top: 0px;
+        // left: 0px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .loader {
+        display: none;
+    }
+
+    .exibition-switchers {
+        padding: 0 2px;
+        margin: 10px 0px 10px 0px !important;
+    }
+
+    .exibition-switchers ion-icon {
+        transition: background-color 0.35s, color 0.35s;
+        background-color: transparent;
+        font-size: 2.5rem;
+        width: 50%;
+        border: 1px solid #00889D;
+        cursor: pointer;
+        border-radius: 0px 6px 6px 0px;
+        margin-left: -2px;
+        padding: 3px 0px;
+    }
+
+    .exibition-switchers ion-icon:first-child {
+        border-radius: 6px 0 0 6px;
+        margin-left: initial;
+    }
+
+    .active {
+        background-color: #00889D !important;
+        color: white !important;
+    }
+
+    .bt-load-reports {
+        background-color: #00889D !important;
+        color: white !important;
+        width: 100% !important;
+        font-size: 1.25rem !important;
+        font-weight: 500 !important;
+        padding: 5px 0 !important;
+        margin-top: 10px;
+    }
+
+    .labels button {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 10px;
+        width: 33.3%;
+    }
+
+    .labels button ion-badge {
+        margin-right: 5px;
+    }
+    
+}

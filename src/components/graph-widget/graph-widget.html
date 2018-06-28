@@ -4,6 +4,7 @@
 
 <div *ngIf="equipmentData?.name" class="equipment-name">
   {{equipmentData.name}}
+  <ion-icon class="btTable" float-right name="ios-stopwatch" (click)="showRealTime(equipmentData?.id)"></ion-icon>
 </div>
 
 <div *ngIf="equipmentData?.description" class="equipment-description">
@@ -14,6 +15,8 @@
   Carregar relatórios
 </button>
 
+<loader-item [loading]="loadingData"></loader-item>
+
 <div [hidden]="!fullData" class="content-div">
 
   <div class="exibition-switchers">
@@ -22,39 +25,68 @@
       <div class="clearfix"></div>
   </div>
 
+
   <div [hidden]="visibility" class="graph-vision">
+    
     <div class="grafico">
-        <canvas [attr.id]="idChart" ></canvas>
+      <canvas [attr.id]="idChart"></canvas>
     </div>
+
+    <!-- <canvas [attr.id]="idChart+'Axis'" class="floating-labels" ></canvas> -->
+ 
   </div>
+
+  <div [hidden]="visibility" class="graph-labels">
+
+    <div style="width: 100%" class="labels">
+      <div style="width: 100%" class="btn-group btn-group-justified legend-graph" role="group">
+        <button (click)="setHiddenDataset(0)" [ngClass]="{'active': visibleIndex == 0}" id="btAll" type="button" class="btn btn-default active" data-sensor="0">Todos</button>
+        <button (click)="setHiddenDataset(1)" [ngClass]="{'active': visibleIndex == 1}" id="bt1" type="button" class="btn btn-default" data-sensor="1"><ion-badge class="legend-item">&nbsp;</ion-badge>Sensor 1</button>
+        <button (click)="setHiddenDataset(2)" [ngClass]="{'active': visibleIndex == 2}" id="bt2" type="button" class="btn btn-default" data-sensor="2"><ion-badge class="legend-item">&nbsp;</ion-badge>Sensor 2</button>
+      </div>
+    </div>
+
+    <div style="width: 100%" class="labels">
+      <div style="width: 100%" class="btn-group btn-group-justified legend-graph" role="group">
+        <button (click)="setHiddenDataset(3)" [ngClass]="{'active': visibleIndex == 3}" id="bt3" type="button" class="btn btn-default" data-sensor="3"><ion-badge class="legend-item">&nbsp;</ion-badge>Sensor 3</button>
+        <button (click)="setHiddenDataset(4)" [ngClass]="{'active': visibleIndex == 4}" id="bt4" type="button" class="btn btn-default" data-sensor="4"><ion-badge class="legend-item">&nbsp;</ion-badge>Sensor 4</button>
+        <button (click)="setHiddenDataset(5)" [ngClass]="{'active': visibleIndex == 5}" id="bt5" type="button" class="btn btn-default" data-sensor="5"><ion-badge class="legend-item">&nbsp;</ion-badge>Sensor 5</button>
+      </div>
+    </div>
+      
+  </div>
+    
+
 
   <div [hidden]="!visibility" class="table-vision ct-table mg-tb-25px" *ngIf="fullData">
 
-    <table class="table table-bordered" *ngIf="fullData.sensor">
+    <table class="table table-bordered" *ngIf="fullData.sensors">
 
-      <tr *ngIf="fullData.sensor[0]?.register?.length > 0">
+      <tr *ngIf="fullData.sensors[0]?.registers?.length > 0">
 
         <th>Data</th>
 
-        <th *ngFor="let sensor of fullData.sensor">
+        <th *ngFor="let sensor of fullData.sensors">
           {{ sensor.name }}
         </th>
 
       </tr>
 
-      <tr *ngIf="fullData.sensor[0]?.register?.length <= 0" >
+      <tr *ngIf="fullData.sensors[0]?.registers?.length <= 0" >
         <td colspan="6"> Sem registros </td>
       </tr>
 
-      <tr *ngFor="let register of fullData.sensor[0].register, let index = index">
+      <tr *ngFor="let register of fullData.sensors[0].registers, let index = index">
 
         <td>{{ register.created_at | date:"dd/MM/yy HH:mm:ss" }}</td>
-        <td>{{ fullData?.sensor[0]?.register[index]?.quantity }}</td>
-        <td>{{ fullData?.sensor[1]?.register[index]?.quantity }}</td>
-        <td>{{ fullData?.sensor[2]?.register[index]?.quantity }}</td>
-        <td>{{ fullData?.sensor[3]?.register[index]?.quantity }}</td>
-        <td>{{ fullData?.sensor[4]?.register[index]?.quantity }}</td>
+        <td>{{ fullData?.sensors[0]?.registers[index]?.quantity }}</td>
+        <td>{{ fullData?.sensors[1]?.registers[index]?.quantity }}</td>
+        <td>{{ fullData?.sensors[2]?.registers[index]?.quantity }}</td>
+        <td>{{ fullData?.sensors[3]?.registers[index]?.quantity }}</td>
+        <td>{{ fullData?.sensors[4]?.registers[index]?.quantity }}</td>
+
       </tr>
+
     </table>
 
   </div>

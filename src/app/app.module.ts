@@ -4,7 +4,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -26,6 +25,15 @@ import { ProductionLinePage } from '../pages/production-line/production-line';
 import { PopoverWidgetComponent } from '../components/popover-widget/popover-widget';
 import { GraphWidgetComponent } from '../components/graph-widget/graph-widget';
 import { EquipmentServiceProvider } from '../providers/equipment-service/equipment-service';
+import { LoaderItemComponent } from '../components/loader-item/loader-item';
+import { AppConfigServiceProvider } from '../providers/app-config-service/app-config-service';
+import { ProductionLineConfigServiceProvider } from '../providers/production-line-config-service/production-line-config-service';
+import { AlertMessagesProvider } from '../providers/alert-messages/alert-messages';
+import { EquipmentInfoComponent } from '../components/equipment-info/equipment-info';
+import { RealTimeDataComponent } from '../components/real-time-data/real-time-data';
+import { RealTimePage } from '../pages/real-time/real-time';
+import { OcurrencyServiceProvider } from '../providers/ocurrency-service/ocurrency-service';
+import { NewGraphComponent } from '../components/new-graph/new-graph';
 
 @NgModule({
   declarations: [
@@ -40,7 +48,7 @@ import { EquipmentServiceProvider } from '../providers/equipment-service/equipme
     ProductionLineDetailsPage,
     ProductionLineOcurrencyPage,
     ProductionLineReportPage,
-    ListPage
+    RealTimePage
   ],
   imports: [
     BrowserModule,
@@ -53,9 +61,13 @@ import { EquipmentServiceProvider } from '../providers/equipment-service/equipme
   ],
   entryComponents: [
     MyApp,
+    LoaderItemComponent,
     LoaderPage,
+    NewGraphComponent,
+    RealTimeDataComponent,
     PopoverWidgetComponent,
     GraphWidgetComponent,
+    EquipmentInfoComponent,
     LoginPage,
     HomePage,
     ProductionLineListPage,
@@ -66,7 +78,7 @@ import { EquipmentServiceProvider } from '../providers/equipment-service/equipme
     ProductionLineDetailsPage,
     ProductionLineOcurrencyPage,
     ProductionLineReportPage,
-    ListPage
+    RealTimePage
   ],
   providers: [
     StatusBar,
@@ -76,7 +88,11 @@ import { EquipmentServiceProvider } from '../providers/equipment-service/equipme
     ConfigProviders,
     CrudServiceProvider,
     ProductionLineServiceProvider,
-    EquipmentServiceProvider
+    EquipmentServiceProvider,
+    AppConfigServiceProvider,
+    ProductionLineConfigServiceProvider,
+    AlertMessagesProvider,
+    OcurrencyServiceProvider
   ]
 })
 export class AppModule {}

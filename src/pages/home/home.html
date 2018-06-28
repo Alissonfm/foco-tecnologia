@@ -46,12 +46,16 @@
     </ion-grid>
     -->
 
+    <loader-item [loading]="loadingData"></loader-item>
+
     <div style="justify-content: flex-start;" class="flex-h-spaced flex-wrap">
 
-      <production-line-widget *ngFor="let line of productionLines" [lineData]="line"></production-line-widget>
+      <production-line-widget class="loader-content" *ngFor="let line of productionLines" [lineData]="line"></production-line-widget>
 
     </div>
 
   </div>
+
+  <new-graph></new-graph>
 
 </ion-content>

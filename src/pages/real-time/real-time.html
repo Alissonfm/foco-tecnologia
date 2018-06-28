@@ -1,0 +1,21 @@
+<!--
+  Generated template for the RealTimePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Produção Ao-vivo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <loader-item [loading]="loadingData"></loader-item>
+
+  <real-time-data [hidden]="loadingData" [equipment]="equipmentData" *ngIf="equipmentData"></real-time-data>
+
+</ion-content>

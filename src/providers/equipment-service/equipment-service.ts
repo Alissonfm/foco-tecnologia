@@ -21,4 +21,8 @@ export class EquipmentServiceProvider extends CrudServiceProvider {
     return this.http.post(`${ConfigProviders.API_URL}/${this.prefix_service}/getAllSensorsRegisters`, {equipment_id: exId, start_date: data.startDate, end_date: data.endDate });
   }
 
+  getSensorsOnly(id: number) {
+    return this.http.get(`${ConfigProviders.API_URL}/${this.prefix_service}/${id}/sensors`);
+  }
+
 }

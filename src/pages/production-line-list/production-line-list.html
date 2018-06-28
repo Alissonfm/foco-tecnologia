@@ -6,13 +6,13 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar hideBackButton>
 
       <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
       </button>
 
-      <ion-title>ProductionLineList</ion-title>
+      <ion-title>Linhas de produção</ion-title>
   
     </ion-navbar>
 
@@ -28,6 +28,8 @@
 
     </div>
   </div>
+
+  <loader-item [loading]="loadingData"></loader-item>
 
   <ion-list class="list-of-lines">
 

@@ -61,4 +61,19 @@ page-login {
         }
     }
 
+    .bt-i-forgot {
+        clear: both;
+        position: relative;
+        margin-top: -15px;
+        margin-bottom: 15px;
+        width: auto;
+        font-size: 10.5px !important;
+        text-decoration: underline;
+        text-transform: initial;
+        color: white !important;
+        background-color: transparent;
+        border: 0px solid transparent;
+        box-shadow: initial !important;
+    }
+
 }

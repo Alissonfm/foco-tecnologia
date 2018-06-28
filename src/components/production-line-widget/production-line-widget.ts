@@ -14,16 +14,12 @@ import { ProductionLinePage } from '../../pages/production-line/production-line'
 })
 export class ProductionLineWidgetComponent {
 
-  text: string;
   @Input() lineData: any;
 
-  constructor(public navCtrl: NavController) {
-    console.log('Hello ProductionLineWidgetComponent Component');
-    this.text = 'Hello World';
-  }
+  constructor(public navCtrl: NavController){}
 
   openPage(){
-    this.navCtrl.push(ProductionLinePage, { data: this.lineData});
+    this.navCtrl.setRoot(ProductionLinePage, { data: this.lineData});
   }
 
 }

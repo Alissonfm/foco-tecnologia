@@ -6,9 +6,11 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar hideBackButton >
 
-    
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
 
     <ion-title> {{ prodline.name }} </ion-title>
 
@@ -24,32 +26,45 @@
 
 <ion-content padding>
 
-    <div class="ct-table">
-        <table>
+  <div class="page-content">
+
+    <!--
+      <div class="page-title"> {{ prodline?.name }} </div>
+
+      <p class="page-content">
+        {{ prodline?.description }}
+      </p>
+    -->
+
+      <div *ngIf="lineIndices" class="ct-table m-top-none">
+
+        <div class="page-title no-border">Indicadores de produção</div>
+
+        <table *ngIf="lineIndices.length > 0" >
+
           <tr>
-            <td>data</td> <td>value</td>
+            <th>Índice</th> <th>Valor</th>
           </tr>
-          <tr>
-            <td>data</td> <td>value</td>
-          </tr>
-          <tr>
-            <td>data</td> <td>value</td> 
-          </tr>
-          <tr>
-            <td>data</td> <td>value</td>
-          </tr>
-          <tr>
-            <td>data</td> <td>value</td>
-          </tr>
-          <tr>
-            <td>data</td> <td>value</td>
-          </tr>
+
+          <tbody>
+            <tr *ngFor="let item of lineIndices">
+              <td>{{item.name}}</td> <td>{{item.equation_value}}</td>
+            </tr>
+          </tbody>
+
         </table>
+
+        <table *ngIf="lineIndices.length <= 0" >
+          <tr><td> Não foram encontrados registros </td></tr>
+        </table>
+
       </div>
 
+    <loader-item [loading]="loadingData"></loader-item>
 
+    <div [hidden]="loadingData">
+      <graph-widget *ngFor="let item of prodline?.equipments" [equipmentData]="item" [timeData]="requestInfo"></graph-widget>
+    </div>
 
-  <graph-widget *ngFor="let item of prodline?.equipments" [equipmentData]="item" [timeData]="requestInfo"></graph-widget>
-  
-
+  </div>
 </ion-content>

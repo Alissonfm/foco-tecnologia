@@ -1,0 +1,92 @@
+<!-- Generated template for the RealTimeDataComponent component -->
+<!-- Generated template for the GraphWidgetComponent component -->
+
+<div class="ct-separator"></div>
+
+<div *ngIf="equipment?.name" class="equipment-name">
+  {{equipment.name}}
+</div>
+
+<div *ngIf="equipment?.description" class="equipment-description">
+  {{equipment.description}}
+</div>
+
+<!--
+<button class="bt-load-reports" [hidden]="openReports" ion-button (click)="loadReports()">
+  Carregar relatórios
+</button>
+-->
+
+<loader-item [loading]="loadingData"></loader-item>
+
+<!-- <div [hidden]="!openReports" class="content-div"> -->
+<div [hidden]="loadingData" class="content-div">
+
+  <div class="exibition-switchers">
+      <ion-icon class="btGraph" float-left name="md-analytics" [ngClass]="{'active': !visibility}" (click)="switchVisibility(false)"></ion-icon>
+      <ion-icon class="btTable" float-right name="md-list-box" [ngClass]="{'active': visibility}" (click)="switchVisibility(true)"></ion-icon>
+      <div class="clearfix"></div>
+  </div>
+
+
+  <div [hidden]="visibility" class="graph-vision">
+    
+    <div class="grafico">
+      <canvas [attr.id]="idChart" ></canvas>
+    </div>
+      
+    <!-- <canvas [attr.id]="idChart='Axis'" ></canvas> -->
+    
+    <div style="width: 100%; padding-top: 15px;" class="labels">
+      <div style="width: 100%" class="btn-group btn-group-justified legend-graph" role="group">
+        <button (click)="setHiddenDataset(0)" [ngClass]="{'active': visibleIndex == 0}" id="btAll" type="button" class="btn btn-default active" data-sensor="0">Todos</button>
+        <button (click)="setHiddenDataset(1)" [ngClass]="{'active': visibleIndex == 1}" id="bt1" type="button" class="btn btn-default" data-sensor="1"><ion-badge class="legend-item">&nbsp;</ion-badge>Sensor 1</button>
+        <button (click)="setHiddenDataset(2)" [ngClass]="{'active': visibleIndex == 2}" id="bt2" type="button" class="btn btn-default" data-sensor="2"><ion-badge class="legend-item">&nbsp;</ion-badge>Sensor 2</button>
+      </div>
+    </div>
+  
+    <div style="width: 100%" class="labels">
+      <div style="width: 100%" class="btn-group btn-group-justified legend-graph" role="group">
+        <button (click)="setHiddenDataset(3)" [ngClass]="{'active': visibleIndex == 3}" id="bt3" type="button" class="btn btn-default" data-sensor="3"><ion-badge class="legend-item">&nbsp;</ion-badge>Sensor 3</button>
+        <button (click)="setHiddenDataset(4)" [ngClass]="{'active': visibleIndex == 4}" id="bt4" type="button" class="btn btn-default" data-sensor="4"><ion-badge class="legend-item">&nbsp;</ion-badge>Sensor 4</button>
+        <button (click)="setHiddenDataset(5)" [ngClass]="{'active': visibleIndex == 5}" id="bt5" type="button" class="btn btn-default" data-sensor="5"><ion-badge class="legend-item">&nbsp;</ion-badge>Sensor 5</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div [hidden]="!visibility" class="table-vision ct-table mg-tb-25px" *ngIf="equipment">
+
+    <table class="table table-bordered" *ngIf="equipment.sensors">
+
+      <tr *ngIf="equipment.sensors[0]?.registers?.length > 0">
+
+        <th>Data</th>
+
+        <th *ngFor="let sensor of equipment.sensors">
+          {{ sensor.name }}
+        </th>
+
+      </tr>
+
+      <tr *ngIf="equipment.sensors[0]?.registers?.length <= 0" >
+        <td colspan="6"> Sem registros </td>
+      </tr>
+      <tbody id="content">
+      <tr *ngFor="let register of equipment.sensors[0].registers, let index = index">
+
+        <td>{{ register.created_at | date:"dd/MM/yy HH:mm:ss" }}</td>
+        <td>{{ equipment?.sensors[0]?.registers[index]?.quantity }}</td>
+        <td>{{ equipment?.sensors[1]?.registers[index]?.quantity }}</td>
+        <td>{{ equipment?.sensors[2]?.registers[index]?.quantity }}</td>
+        <td>{{ equipment?.sensors[3]?.registers[index]?.quantity }}</td>
+        <td>{{ equipment?.sensors[4]?.registers[index]?.quantity }}</td>
+
+      </tr>
+    </tbody>
+      
+    </table>
+
+  </div>
+
+</div>

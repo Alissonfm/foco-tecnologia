@@ -19,6 +19,10 @@ ion-header {
     background-image: linear-gradient(to bottom,#008B95, #00889D);
 }
 
+ion-navbar[hidebackbutton] button[menutoggle] {
+    display: block !important;
+  }
+
 ion-header, ion-header * {
     color: white !important;
 }
@@ -31,7 +35,7 @@ ion-menu ion-header .user-letter {
     background-color: rgba(255,255,255,0.35);
     float: left;
     vertical-align: middle;
-    padding: 1.25rem 1.65rem;
+    padding: 1rem 1.65rem;;
     border-radius: 3rem;
     margin-left: 15px;
     margin-right: 10px;
@@ -62,6 +66,10 @@ ion-menu ion-content ion-icon {
 
 .app-menu .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
     border-bottom: none;
+}
+
+.no-border {
+    border: none !important;
 }
 
 .logo-container {
@@ -150,9 +158,21 @@ ion-menu ion-content ion-icon {
     padding-top: 25px !important;
 }
 
+.p-top-10px {
+    padding-top: 10px;
+}
+
 // Margin top and bottom values set at 25px
 .mg-tb-25px {
     margin: 25px 0px;
+}
+
+.m-top-15px {
+    margin-top: 15px;
+}
+
+.m-top-none {
+    margin-top: 0 !important;
 }
 
 .ct-table {
@@ -185,6 +205,11 @@ ion-menu ion-content ion-icon {
     color: white;
     position: sticky;
     top: 0px;
+    text-align: center;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0px;
 }
 
 .ct-table table tr:nth-child(odd) {
@@ -212,4 +237,24 @@ ion-menu ion-content ion-icon {
     width: 100%;
     height: inherit;
     background-color: silver;
+}
+
+ion-toolbar .title-ios {
+    padding: initial;
+    margin-left: -47.5px;
+    margin-top: 2px;
+}
+
+@keyframes loadMe {
+    0% {opacity: 0; transform: translateX(50%)}
+    100% {opacity: 1; transform: translateX(0%)}
+}
+
+@keyframes fromBottom {
+    0% {opacity: 0; transform: translateY(50%)}
+    100% {opacity: 1; transform: translateY(0%)}
+}
+
+.loader-content {
+    animation: fromBottom 1 0.4s;
 }

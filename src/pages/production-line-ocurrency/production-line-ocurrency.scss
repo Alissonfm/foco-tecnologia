@@ -14,30 +14,16 @@ page-production-line-ocurrency {
             line-height: 20px;
         }
 
-        .ct-table, .ct-table table {
-            width: 100%;
-        }
-        
-        .ct-table table tr td {
-            border: 1px solid gray;
-            color: #00889D;
-            padding: 5px 0;
+        loader-item {
+            margin-top: 25px;
         }
 
         .ct-table table tr th {
-            background-color: #00889D;
-            border-color: #00889D;
-            color: white;
+            padding: 3px 5px;
+            text-transform: uppercase;
+            font-size: 10px;
         }
 
-        .ct-table table tr:nth-child(odd) {
-            background-color: rgba(0,150,214,0.2);
-            color: gray;
-        }
-
-        .ct-table table tr td {
-            text-align: center;
-        }
     }
 
 }

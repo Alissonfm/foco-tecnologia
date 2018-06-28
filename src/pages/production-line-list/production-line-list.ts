@@ -20,11 +20,12 @@ declare var $: any;
 export class ProductionLineListPage {
 
   items: any;
+  loadingData: boolean;
 
-  constructor( public prodLineCtrl: ProductionLineServiceProvider, public navCtrl: NavController ) {
-
-    
-  }
+  constructor( 
+    public prodLineCtrl: ProductionLineServiceProvider, 
+    public navCtrl: NavController 
+  ) {}
   
   ionViewDidLoad() {
     this.initializeItems(); 
@@ -33,20 +34,17 @@ export class ProductionLineListPage {
 
   initializeItems() {
 
+    this.loadingData = true;
     // passa um objeto vazia pois assim irá assumir as configurações do servidor;
     // Adiciona um subscribe para ouvir a resposta através de um callback;
     this.prodLineCtrl.getData({}).subscribe( (response) => {
-      
       this.items = response.data;
-      
+      this.loadingData = false;
     } );
-
   }
 
   openPage(item){
-
-    this.navCtrl.push(ProductionLinePage, {data: item});
-
+    this.navCtrl.setRoot(ProductionLinePage, {data: item});
   }
 
   getItems(ev) {

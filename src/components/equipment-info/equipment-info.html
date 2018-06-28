@@ -1,0 +1,26 @@
+<!-- Generated template for the EquipmentInfoComponent component -->
+
+
+<loader-item [loading]="loadingData" ></loader-item>
+
+<div *ngIf="sensorsInfo" class="equipments">
+
+    <div class="name"> <span class="txt-up"> Equipamento: </span> <br/> {{ equipmentInfo?.name }} </div>
+    <div class="description"> <span class="txt-up"> Descrição: </span> <br/> {{ equipmentInfo?.description }} </div>
+
+    <div *ngIf="sensorsInfo.length > 0" class="sensors">
+
+      <ion-item *ngFor="let sensor of sensorsInfo">
+        <div class="name"> <span class="txt-up"> Sensor: </span> {{ sensor?.name }} </div>
+        <div class="location"> <span class=""> Localização: </span> {{ sensor?.location }} </div>
+      </ion-item>
+
+    </div>
+
+    <div *ngIf="sensorsInfo.length <= 0">
+        Não foi encontrado nenhum sensor ativo neste equipamento.
+      </div>
+    
+</div>
+
+

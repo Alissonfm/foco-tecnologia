@@ -4,15 +4,12 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header class="p-top-25px">
+<ion-header>
 
   <ion-navbar>
 
-      <ion-content>
-        <button ion-button navPop>Go Back</button>
-      </ion-content>
-
-    <ion-title>ProductionLineReport</ion-title>
+    <ion-title> Relatório por período </ion-title>
+  
   </ion-navbar>
 
 </ion-header>
@@ -26,37 +23,37 @@
     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita esse enim aperiam corporis dolorum quibusdam aliquam ex! Recusandae optio facilis rem maxime voluptatum eius officiis, nobis accusamus blanditiis, tenetur placeat.
   </p>
 
-  <div class="time-select">
+  <div class="time-select m-top-25px">
 
     <ion-grid>
         
       <ion-row>
-        <ion-label> Data e horário de iníncio</ion-label>
+        <ion-label>Data e horário de iníncio</ion-label>
       
         <div class="clearfix"></div>
 
-        <ion-item float-left>
-          <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="time.startDate"></ion-datetime>
+        <ion-item float-left class="p-right-5px">
+          <ion-datetime [attr.id]="'startDate'" displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="time.startDate"></ion-datetime>
         </ion-item>
       
-        <ion-item float-right>
-          <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="time.startTime"></ion-datetime>
+        <ion-item float-right class="p-left-5px">
+          <ion-datetime [attr.id]="'startTime'" displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="time.startTime"></ion-datetime>
         </ion-item>
 
         <div class="clearfix"></div>
       </ion-row>
 
-      <ion-row>
+      <ion-row class="m-top-15px">
         <ion-label>Data e horário de fim</ion-label>
 
         <div class="clearfix"></div>
     
-        <ion-item float-left>
-          <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="time.endDate"></ion-datetime>
+        <ion-item float-left class="p-right-5px">
+          <ion-datetime [attr.id]="'endDate'" displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="time.endDate"></ion-datetime>
         </ion-item>
-    
-        <ion-item float-right>
-          <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="time.endTime"></ion-datetime>
+      
+        <ion-item float-right class="p-left-5px">
+          <ion-datetime [attr.id]="'endTime'" displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="time.endTime"></ion-datetime>
         </ion-item>
 
         <div class="clearfix"></div>
@@ -64,42 +61,16 @@
 
     </ion-grid>
 
-    <button ion-button class="bt-custom-report" (click)="loadCustomReport()">
+    <button ion-button class="bt-custom-report m-top-15px" (click)="loadCustomReport()">
       Buscar dados dentro do intervalo
     </button>
 
   </div>
 
+  <div *ngIf="requestTime" class="content-wrapper m-top-25px">
 
-  <div class="ct-table">
-    <table>
+    <graph-widget *ngFor="let equipment of lineData.equipments" [equipmentData]="equipment" [timeData]="requestTime"></graph-widget>
 
-      <tr>
-        <td>data</td> <td>value</td>
-      </tr>
-
-      <tr>
-        <td>data</td> <td>value</td>
-      </tr>
-
-      <tr>
-        <td>data</td> <td>value</td> 
-      </tr>
-
-      <tr>
-        <td>data</td> <td>value</td>
-      </tr>
-
-      <tr>
-        <td>data</td> <td>value</td>
-      </tr>
-
-      <tr>
-        <td>data</td> <td>value</td>
-      </tr>
-
-    </table>
   </div>
-
 
 </ion-content>

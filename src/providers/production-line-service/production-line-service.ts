@@ -14,15 +14,15 @@ import { ConfigProviders } from '../config-providers';
 export class ProductionLineServiceProvider extends CrudServiceProvider {
 
   constructor(public http: HttpClient) {
-    
     super("productionlines", http);
-
   }
 
   getEquipments(id: number): Observable<any> {
-  
     return this.http.get(`${ConfigProviders.API_URL}/${this.prefix_service}/${id}/equipments`);
+  }
 
+  getIndices(id: number): Observable<any> {
+    return this.http.get(`${ConfigProviders.API_URL}/${this.prefix_service}/${id}/indices/data`);
   }
   
 }

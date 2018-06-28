@@ -25,7 +25,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage, icon: "home", type: "new" },
-      { title: 'Linhas de Produção', component: ProductionLineListPage, icon: "list-box", type: "new" },
+      { title: 'Linhas de Produção', component: ProductionLineListPage, icon: "list-box", type: "push" },
       { title: 'Configurações', component: ConfiguracaoPage, icon: "cog", type: "push"},
       { title: 'Informações', component: InformacaoPage, icon: "information-circle", type: "push"}
     ];

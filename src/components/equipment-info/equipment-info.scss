@@ -1,0 +1,76 @@
+equipment-info {
+
+    .txt-up {
+        text-transform: uppercase;
+    }
+
+    .equipments .name, .equipments .description {
+        color: #00889D;
+    }
+
+    .sensors .name, .sensors .location {
+        color: white;
+    }
+
+    .equipments .name {
+        padding-bottom: 10px;
+    }
+
+    .equipments .description {
+        padding-bottom: 15px;
+    }
+
+    .sensors .name {
+        padding: initial;
+    }
+
+    .sensors ion-item {
+        background-color: rgba(0, 136, 157, 0.5);
+        padding: 7.5px 15px;
+        animation: loadMe 1 0.6s;
+    }
+
+    .equipments {
+        background-color: rgba(0,150,214,0.125);
+        padding: 15px;
+        animation: loadMe 1 0.4s;
+    }
+
+    .equipments, .sensors ion-item {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0px 1.25rem 1.25rem -1rem rgba(0, 0, 0, 0.25);
+        margin-bottom: 20px;
+    }
+
+    .equipments .name {
+        font-size: 16px;
+        font-weight: 600;
+    }
+    
+    .sensors ion-item .name {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .equipments .description {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+
+    .sensors ion-item .location span {
+        font-size: 12px;
+    }
+
+    .sensors ion-item .location {
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    ion-item, ion-item * {
+        border-bottom: none !important;
+    }
+
+}

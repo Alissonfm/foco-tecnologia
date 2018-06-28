@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class ConfigProviders {
 
-    static API_URL: string = "http://192.168.1.30:8080/foco-tecnologia-gestao-api/public/api/v1";
+    static API_URL: string = "http://api.ftecnologia.com.br/public/api/v1";
+    static SOCKET_URL: string = "http://foco-node.herokuapp.com";
 
 }
