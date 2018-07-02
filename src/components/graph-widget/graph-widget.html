@@ -19,23 +19,21 @@
 
 <div [hidden]="!fullData" class="content-div">
 
+  <!--
   <div class="exibition-switchers">
       <ion-icon class="btGraph" float-left name="md-analytics" [ngClass]="{'active': !visibility}" (click)="switchVisibility(false)"></ion-icon>
       <ion-icon class="btTable" float-right name="md-list-box" [ngClass]="{'active': visibility}" (click)="switchVisibility(true)"></ion-icon>
       <div class="clearfix"></div>
   </div>
+  -->
 
-
-  <div [hidden]="visibility" class="graph-vision">
+  <!-- <div [hidden]="visibility" class="graph-vision"> -->
     
-    <div class="grafico">
-      <canvas [attr.id]="idChart"></canvas>
-    </div>
-
-    <!-- <canvas [attr.id]="idChart+'Axis'" class="floating-labels" ></canvas> -->
- 
+  <div class="graph-vision">
+    <div class="grafico" id="myChart"></div>
   </div>
 
+  
   <div [hidden]="visibility" class="graph-labels">
 
     <div style="width: 100%" class="labels">
@@ -55,9 +53,9 @@
     </div>
       
   </div>
-    
+  
 
-
+  <!--
   <div [hidden]="!visibility" class="table-vision ct-table mg-tb-25px" *ngIf="fullData">
 
     <table class="table table-bordered" *ngIf="fullData.sensors">
@@ -90,5 +88,6 @@
     </table>
 
   </div>
+  -->
 
 </div>

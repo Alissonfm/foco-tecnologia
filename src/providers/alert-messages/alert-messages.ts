@@ -15,7 +15,7 @@ export class AlertMessagesProvider {
     console.log('Hello AlertMessagesProvider Provider');
   }
 
-  presentAlert(titulo, conteudo: string) {
+  presentAlert(titulo:string , conteudo: string) {
 
     let alert = this.alertCtrl.create({
 
@@ -29,7 +29,7 @@ export class AlertMessagesProvider {
 
   }
   
-  presentConfirm(titulo, conteudo: string) {
+  presentConfirm(titulo:string, conteudo: string, handlerYes: any, handlerNo: any) {
 
     let alert = this.alertCtrl.create({
 
@@ -38,23 +38,14 @@ export class AlertMessagesProvider {
       message: conteudo,
 
       buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-            return false;
-          }
+        { 
+          text: "Não",
+          handler: handlerNo
         },
-
         {
-          text: 'Ok',
-          handler: () => {
-            console.log('Buy clicked');
-            return true;
-          }
+          text: 'Sim',
+          handler: handlerYes
         }
-
       ]
     });
 

@@ -17,7 +17,7 @@ import { ConfiguracaoPage } from '../pages/configuracao/configuracao';
 import { CrudServiceProvider } from '../providers/crud-service/crud-service';
 import { ProductionLineServiceProvider } from '../providers/production-line-service/production-line-service';
 import { ConfigProviders } from '../providers/config-providers';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProductionLineOcurrencyPage } from '../pages/production-line-ocurrency/production-line-ocurrency';
 import { ProductionLineReportPage } from '../pages/production-line-report/production-line-report';
 import { ProductionLineDetailsPage } from '../pages/production-line-details/production-line-details';
@@ -34,6 +34,10 @@ import { RealTimeDataComponent } from '../components/real-time-data/real-time-da
 import { RealTimePage } from '../pages/real-time/real-time';
 import { OcurrencyServiceProvider } from '../providers/ocurrency-service/ocurrency-service';
 import { NewGraphComponent } from '../components/new-graph/new-graph';
+import { CtSettingServiceProvider } from '../providers/ct-setting-service/ct-setting-service';
+import { TokenInterceptor } from '../interceptors/token.interceptor';
+import { RefreshTokenInterceptor } from '../interceptors/refresh-token.interceptor';
+import { SensorServiceProvider } from '../providers/sensor-service/sensor-service';
 
 @NgModule({
   declarations: [
@@ -84,6 +88,8 @@ import { NewGraphComponent } from '../components/new-graph/new-graph';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: RefreshTokenInterceptor, multi: true },
     HttpClient,
     ConfigProviders,
     CrudServiceProvider,
@@ -92,7 +98,9 @@ import { NewGraphComponent } from '../components/new-graph/new-graph';
     AppConfigServiceProvider,
     ProductionLineConfigServiceProvider,
     AlertMessagesProvider,
-    OcurrencyServiceProvider
+    OcurrencyServiceProvider,
+    CtSettingServiceProvider,
+    SensorServiceProvider
   ]
 })
 export class AppModule {}
